@@ -79,6 +79,13 @@ curl --location 'localhost:8000/api/v1/products' \
 --header 'accept: application/json'
 ```
 
+#### Example: Filter Products by Region & Rental Period
+
+```sh
+curl --location 'localhost:8000/api/v1/products?region=1&period=1' \
+--header 'accept: application/json'
+```
+
 ### Running PHPUnit Tests
 
 ```sh

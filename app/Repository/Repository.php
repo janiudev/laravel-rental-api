@@ -80,6 +80,7 @@ abstract class Repository implements RepositoryInterface
     protected function newQuery(): static
     {
         $this->query = $this->model->newQuery();
+
         return $this;
     }
 

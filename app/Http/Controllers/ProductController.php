@@ -19,7 +19,10 @@ class ProductController extends Controller
 
     public function index(): JsonResource
     {
-        return $this->resource::collection($this->repository->paginate());
+        $filters = request()->only(['region', 'period']);
+        $result = $this->repository->findAvailableProducts($filters);
+
+        return $this->resource::collection($result);
     }
 
     public function store(CreateProductRequest $request): JsonResource
