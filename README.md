@@ -2,6 +2,8 @@
 
 This is a Laravel-based Rental API.
 
+![erd.png](erd.png)
+
 ## Installation
 
 ### 1. Clone the repository
