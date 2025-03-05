@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function() {
     Route::name('products')->group(function() {
-        Route::get('/products', [ProductController::class, 'index']);
+        Route::get('/products', [ProductController::class, 'productListing']);
         Route::get('/products/{id}', [ProductController::class, 'show']);
         Route::post('/products', [ProductController::class, 'store']);
     });

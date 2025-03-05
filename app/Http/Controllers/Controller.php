@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Product\ProductListingFilterRequest;
+use App\Http\Requests\Request;
 use App\Http\Resources\Resources;
 use App\Repository\Repository;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,11 +14,7 @@ abstract class Controller
     protected Repository $repository;
     protected string $resource = Resources::class;
 
-    /**
-     * @param mixed $request
-     * @return JsonResource
-     */
-    public function index(ProductListingFilterRequest $request): JsonResource
+    public function index(Request $request): JsonResource
     {
         $result = $this->repository->all();
 

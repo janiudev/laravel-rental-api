@@ -18,7 +18,7 @@ class ProductController extends Controller
         $this->repository = $repository;
     }
 
-    public function index(ProductListingFilterRequest $request): JsonResource
+    public function productListing(ProductListingFilterRequest $request): JsonResource
     {
         $filters = $request->toArray();
         $result = $this->repository->findAvailableProducts($filters);
