@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Relationship\AttributeValue\HasManyAttributeValueTrait;
 use App\Relationship\Product\BelongsToProductTrait;
 use App\Relationship\Region\BelongsToRegionTrait;
 use App\Relationship\RentalPeriod\BelongsToRentalPeriodTrait;
@@ -11,6 +12,7 @@ class ProductPricing extends Model
 {
     use BelongsToProductTrait,
         BelongsToRentalPeriodTrait,
+        HasManyAttributeValueTrait,
         BelongsToRegionTrait;
 
     protected $casts = [

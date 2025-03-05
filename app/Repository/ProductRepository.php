@@ -7,9 +7,9 @@ use Illuminate\Support\Arr;
 
 class ProductRepository extends Repository
 {
-    protected array $with = ['attributes.attribute', 'pricing.region', 'pricing.rentalPeriod'];
+    protected array $with = ['attributes.attribute', 'pricing'];
 
-    public function findAvailableProducts($filters, $perPage = 15): LengthAwarePaginator
+    public function findAvailableProducts(array $filters, ?int $perPage = 15): LengthAwarePaginator
     {
         $query = $this->query->with($this->with);
 

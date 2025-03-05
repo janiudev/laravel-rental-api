@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Product\CreateProductRequest;
+use App\Http\Requests\Product\ProductListingFilterRequest;
 use App\Http\Resources\Product\ProductResource;
 use App\Models\Product;
 use App\Models\ProductPricing;
@@ -17,9 +18,9 @@ class ProductController extends Controller
         $this->repository = $repository;
     }
 
-    public function index(): JsonResource
+    public function index(ProductListingFilterRequest $request): JsonResource
     {
-        $filters = request()->only(['region', 'period']);
+        $filters = $request->toArray();
         $result = $this->repository->findAvailableProducts($filters);
 
         return $this->resource::collection($result);
